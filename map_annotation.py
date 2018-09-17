@@ -52,7 +52,7 @@ def annotate_genes( mapping_table, data_input_file, output_file ):
 def main( arguments ):
 	""""! @brief runs all functions for mapping of annotation """
 	
-	annotation_file = "/vol/agrcourse/scripts/all_gene_ids_with_function.csv"
+	annotation_file = "all_gene_ids_with_function.csv"
 	mapping_table = load_annotation( annotation_file )
 	
 	data_input_file = arguments[ arguments.index( '--input_file' ) + 1 ]
