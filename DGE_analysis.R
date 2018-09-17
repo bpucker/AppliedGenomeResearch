@@ -6,13 +6,13 @@
 library("DESeq2")
 
 # --- loading sampleTable --- #
-csvfile <- "/prj/gf-arabseq/project_Ath-Nd1/members/bpucker/GRC/tests/deseq2/clean_sample_table.txt"
+csvfile <- "clean_sample_table.txt"
 sampleTable <- read.csv(csvfile, row.names=1, sep="\t")
 sampleTable$genotype <- as.factor( sampleTable$genotype )
 summary(sampleTable)
 
 # --- loading the data matrix --- #
-count_data_file <- "/prj/gf-arabseq/project_Ath-Nd1/members/bpucker/GRC/tests/deseq2/clean_data_matrix.txt"
+count_data_file <- "clean_data_matrix.txt"
 countdata <- read.csv(count_data_file,row.names=1, header=T, sep="\t")
 summary(countdata)
 
@@ -43,7 +43,7 @@ small.pvalue.index <- head( order( res$padj ), 20  )
 names <- row.names(res)
 ( sig.gene.names <- names[ small.pvalue.index  ] )
 
-outputfile <- "/prj/gf-arabseq/project_Ath-Nd1/members/bpucker/GRC/tests/deseq2/differentially_expressed_genes.txt"
+outputfile <- "differentially_expressed_genes.txt"
 write( sig.gene.names, outputfile, ncolumns=length( sig.gene.names ), sep="\n"  )
 
 # --- print session information --- #
