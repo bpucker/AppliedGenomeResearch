@@ -1,1 +1,1 @@
-run5_PE bowtie /prj/gf-arabseq/project_Ath-Nd1/members/bpucker/GRC/data/Nd1_fw.paired.fastq /prj/gf-arabseq/project_Ath-Nd1/members/bpucker/GRC/data/Nd1_rv.paired.fastq 750 0.2 FR
+run5_PE bowtie Nd1_fw.paired.fastq Nd1_rv.paired.fastq 750 0.2 FR
