@@ -16,6 +16,6 @@ pair_num_cutoff=5
 #minimum aligned length to contigs for a reliable read location (at least 32 for short insert size)
 map_len=50
 #a pair of fastq file, read 1 file should always be followed by read 2 file
-q1=/prj/gf-arabseq/project_Ath-Nd1/members/bpucker/GRC/data/Nd1_fw.paired.fastq
-q2=/prj/gf-arabseq/project_Ath-Nd1/members/bpucker/GRC/data/Nd1_rv.paired.fastq
+q1=Nd1_fw.paired.fastq
+q2=Nd1_rv.paired.fastq
 
