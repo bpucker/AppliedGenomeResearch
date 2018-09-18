@@ -2,13 +2,16 @@
 ### v1.2 ###
 ### bpucker@cebitec.uni-bielefeld.de ###
 
-import re, sys
+import re, sys, os
 
 # --- end of imports --- #
 
 __usage__ = """ python contig_stats.py\n
 				--input <FILENAME>\n
+				
+				optional:
 				--min_contig_len <INTEGER> [default=500]\n
+				--out <FULL_PATH_TO_OUTPUT_DIRECTORY>
 				
 				bug reports and feature requests: bpucker@cebitec.uni-bielefeld.de
 			"""
@@ -104,10 +107,7 @@ def calculate_formal_contig_stats( filename ):
 			'N90': N90
 		 }
 	
-	print "calculation of formal assembly stats done."
-	print "stats:"
-	print stats
-	
+	print "calculation of formal assembly stats done."	
 	return stats
 
 
@@ -175,26 +175,26 @@ def clean_assembly_file( input_file, output_file, cutoff ):
 				if line[0] == '>':
 					if len( seq ) >= cutoff:
 						out.write( '>' + header + '\n' + seq + '\n' )
+					seq = ""
+					try:
 						try:
 							try:
 								try:
 									try:
 										try:
-											try:
-												header = re.findall( "contig_\d+", line )[0]
-											except:
-												header = re.findall( "contig\d+", line )[0]
+											header = re.findall( "contig_\d+", line )[0]
 										except:
-											header = re.findall( "scaffold\d+", line )[0]
+											header = re.findall( "contig\d+", line )[0]
 									except:
-										header = re.findall( "C\d+", line )[0]
+										header = re.findall( "scaffold\d+", line )[0]
 								except:
-									header = re.findall( "NODE_\d+", line )[0]
+									header = re.findall( "C\d+", line )[0]
 							except:
-								header = re.findall( "seq\d+", line )[0]
+								header = re.findall( "NODE_\d+", line )[0]
 						except:
-							header = line.strip()[1:]
-					seq = ""
+							header = re.findall( "seq\d+", line )[0]
+					except:
+						header = line.strip()[1:]
 				else:
 					seq += line.strip()
 				line = f.readline()
@@ -213,10 +213,19 @@ def main( arguments ):
 	else:
 		cutoff = 500
 	
-	clean_assembly_filename = '.'.join( raw_assembly_file.split('.')[:-1] ) + '_trimmed.fasta'
-	stats_outputfile = '/' + '/'.join( clean_assembly_filename.split('/')[:-1] ) + "/" + '.'.join( clean_assembly_filename.split('/')[-1].split('.')[:-1] ) + "_stats.txt"
+	if '--out' in arguments:
+		output_dir = arguments[ arguments.index( '--out' ) + 1 ]
+		if output_dir[-1] != '/':
+			output_dir += "/"
+		if not os.path.exists( output_dir ):
+			os.makedirs( output_dir )
+		clean_assembly_filename = output_dir + raw_assembly_file.split('/')[-1] + '_trimmed.fasta'
+		stats_outputfile = output_dir + raw_assembly_file.split('/')[-1] + '_stats.txt'
+	else:
+		clean_assembly_filename = raw_assembly_file + '_trimmed.fasta'
+		stats_outputfile = clean_assembly_filename.replace( "_trimmed.fasta", "_stats.txt" )
 	
-	# --- cleaning CLC exported assembly --- #
+	# --- cleaning assembly --- #
 	clean_assembly_file( raw_assembly_file, clean_assembly_filename, cutoff )
 	
 	# --- calculating assembly stats --- #
