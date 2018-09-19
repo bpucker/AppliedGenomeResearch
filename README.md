@@ -19,6 +19,8 @@ improved annotation: https://doi.org/10.1186/s13104-017-2985-y
 
 PacBio assemlby of Nd-1: https://doi.org/10.1101/407627 
 
+De novo transcriptome assembly: https://doi.org/10.3389/fmolb.2018.00062
+
 
 
 \
