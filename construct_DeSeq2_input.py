@@ -50,7 +50,7 @@ def load_sample_information( sample_information_file, data_dir, pseudo_replicate
 			parts = line.strip().split(',')
 			for i in range( pseudo_replicates ):
 				sample_information.append( { 	'name': parts[1]+'_'+str(i+1),
-												'expression':load_expression_values( data_dir + parts[2] + ".count_table.txt" ),
+												'expression':load_expression_values( data_dir + parts[2] + ".countTable" ),
 												'genotype': parts[1]
 											} )
 			line = f.readline()
