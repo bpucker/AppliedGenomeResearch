@@ -1,4 +1,4 @@
-https://zenodo.org/badge/latestdoi/131188317
+[![DOI](https://zenodo.org/badge/131188317.svg)](https://zenodo.org/badge/latestdoi/131188317)
 
 
 # AppliedGenomeResearch
