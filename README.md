@@ -1,3 +1,6 @@
+https://zenodo.org/badge/doi/10.5281/zenodo.2573152.svg
+
+
 # AppliedGenomeResearch
 course about NGS data processing: genomics and transcriptomics
 
