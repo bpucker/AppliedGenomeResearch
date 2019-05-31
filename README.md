@@ -24,6 +24,7 @@ PacBio assemlby of Nd-1: https://doi.org/10.1101/407627
 
 De novo transcriptome assembly: https://doi.org/10.3389/fmolb.2018.00062
 
+Integrating Molecular Biology and Bioinformatics Education: https://doi.org/10.1515/jib-2019-0005
 
 
 \
