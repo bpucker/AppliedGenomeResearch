@@ -6,8 +6,8 @@ course about NGS data processing: genomics and transcriptomics
 
 
 Nd-1 sequencing reads for de novo genome assembly and read mapping against Col-0 reference:
+[10.4119/unibi/2941047](https://doi.org/10.4119/unibi/2941047)
 
-https://docs.cebitec.uni-bielefeld.de/index.php/s/6zQePW6x3itGTdo
 
 
 
