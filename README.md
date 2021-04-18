@@ -5,6 +5,10 @@
 course about NGS data processing: genomics and transcriptomics
 
 
+<img alt="Applied Genome Research course content overview" src="https://github.com/bpucker/figures/blob/main/AppliedGenomeReserachCourseContentOverview.png" width="100%" height="100%"> 
+
+
+
 Nd-1 sequencing reads for de novo genome assembly and read mapping against Col-0 reference:
 [10.4119/unibi/2941047](https://doi.org/10.4119/unibi/2941047)
 
